@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController
 {
+
     /**
      *  Page/Action: Accueil
      */
@@ -15,4 +16,5 @@ class DefaultController extends AbstractController
     {
         return $this->render('default/index.html.twig');
     }
+
 }
