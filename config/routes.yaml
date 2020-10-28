@@ -5,3 +5,8 @@ dashboard:
 index:
     path: /
     controller: App\Controller\DefaultController::index
+
+contact:
+    path: /page/contact
+    controller: App\controller\DefaultController::contact
+
