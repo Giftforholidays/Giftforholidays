@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b1ea5da-c06a-43b2-bfa4-76e3357eab2c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/giftforholidays.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.phar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/bag-21467_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/presents-153926_640.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/rose-3072698_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/watercolor-roses-and-basket-2144246_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/component/_footer.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/component/_header.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/component/_nav.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/default/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,13 +137,18 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1jSjqDONZX4sWlYbQ7LQXlADyXq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../actunews" />
     <property name="settings.editor.selected.configurable" value="Symfony2.SettingsForm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -154,21 +161,29 @@
       <option name="presentableId" value="Default" />
       <updated>1603804578322</updated>
       <workItem from="1603804581043" duration="960000" />
-      <workItem from="1603809219812" duration="5204000" />
+      <workItem from="1603809219812" duration="5786000" />
+      <workItem from="1603874827217" duration="19291000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="1211" y="318" key="NewPhpClassDialog" timestamp="1603809641889">
+    <state x="326" y="303" key="FileChooserDialogImpl" timestamp="1603878874768">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1211" y="318" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603809641889" />
-    <state x="922" y="240" key="SettingsEditor" timestamp="1603811505265">
+    <state x="326" y="303" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603878874768" />
+    <state x="1211" y="318" key="NewPhpClassDialog" timestamp="1603881195194">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="922" y="240" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603811505265" />
+    <state x="1211" y="318" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603881195194" />
+    <state x="922" y="240" key="SettingsEditor" timestamp="1603899268852">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="922" y="240" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603899268852" />
   </component>
 </project>

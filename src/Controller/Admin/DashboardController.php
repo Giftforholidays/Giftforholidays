@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DashboardController extends AbstractDashboardController
 {
     /**
-     * @Route("/admin", name="admin")
+     * @Route("/admin", name="admin" )
      */
     public function index(): Response
     {
@@ -21,28 +21,30 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Giftforholidays')
-            ->setTitle('<img src="..."> Gift <span class="text-small">Holiday</span>')
-            ->setFaviconPath('favicon.svg')
-            ->setTranslationDomain('Welcome-to-Gift-World')
+//            ->setTitle('Giftforholidays')
+//            ->setTitle('<img src="..."> Gift For <span class="text-small">Holiday</span>')
+//            ->setFaviconPath('favicon.svg')
+//            ->setTranslationDomain('Welcome-to-Gift-World')
 
             // there's no need to define the "text direction" explicitly because
             // its default value is inferred dynamically from the user locale
-            ->setTextDirection('ltr');
+//            ->setTextDirection('ltr')
+            ;
     }
 
     public function configureMenuItems(): iterable
     {
         return [
-            yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home'),
+            MenuItem::linktoDashboard('Dashboard', 'fa fa-home'),
         // yield MenuItem::linkToCrud('The Label', 'icon class', EntityClass::class);
-        MenuItem::section('Blog'),
-            MenuItem::linkToCrud('Categories', 'fa fa-tags', Category::class),
-            MenuItem::linkToCrud('Blog Posts', 'fa fa-file-text', BlogPost::class),
+//            MenuItem::section('Blog'),
+//            MenuItem::linkToCrud('Categories', 'fa fa-tags', Category::class),
+//            MenuItem::linkToCrud('themes', 'fa fa-file-text', themes::class),
+//
+//            MenuItem::section('Users'),
+//            MenuItem::linkToCrud('Comments', 'fa fa-comment', Comment::class),
+//            MenuItem::linkToCrud('Users', 'fa fa-user', User::class)
 
-            MenuItem::section('Users'),
-            MenuItem::linkToCrud('Comments', 'fa fa-comment', Comment::class),
-            MenuItem::linkToCrud('Users', 'fa fa-user', User::class)
         ];
     }
 }
