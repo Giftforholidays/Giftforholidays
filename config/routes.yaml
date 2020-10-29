@@ -1,3 +1,12 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+dashboard:
+    path: /admin
+    controller: App\Controller\Admin\DashboardController::index
+
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+contact:
+    path: /page/contact
+    controller: App\controller\DefaultController::contact
+
