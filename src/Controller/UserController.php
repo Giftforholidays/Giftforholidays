@@ -46,8 +46,8 @@ public function createUser(Request $request,UserPasswordEncoderInterface $encode
 
         $this->addFlash('notice', 'Félicitation pour votre inscription !');
 
-        #Redirection FIXME modifier l'url vers page connexion
-        return $this->redirectToRoute('/');
+        #Redirection
+        return $this->redirectToRoute('index');
     } #endif
 
     return $this->render('user/create.html.twig', [
