@@ -9,7 +9,7 @@
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
 
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Noël <i class="fas fa-air-freshener"></i></a>
+                <a class="nav-link dropdown-toggle" href="{{ path('default_category', {'alias':'noel'}) }}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Noël <i class="fas fa-air-freshener"></i></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>
@@ -18,7 +18,7 @@
             </li>
 
             <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Marriage <i class="fas fa-glass-cheers"></i>
+           <a class="nav-link dropdown-toggle" href="{{ path('default_category',{'alias':'marriage'}) }}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Marriage <i class="fas fa-glass-cheers"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
@@ -30,7 +30,7 @@
             <li class="nav-item dropdown">
 
 
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux d'Anniversaire <i class="fas fa-birthday-cake"></i></a>
+                <a class="nav-link dropdown-toggle" href="{{ path('default_category',{'alias':'anniversaire'}) }}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux d'Anniversaire <i class="fas fa-birthday-cake"></i></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>
@@ -39,7 +39,7 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Nouvel An Chinois <i class="fas fa-candy-cane"></i></a>
+                <a class="nav-link dropdown-toggle" href="{{ path('default_category',{'alias':'nouvelan'}) }}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Nouvel An Chinois <i class="fas fa-candy-cane"></i></a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>

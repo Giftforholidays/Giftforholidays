@@ -28,11 +28,6 @@ class ProductController extends AbstractController
     public function createProduct(Request $request, SluggerInterface $slugger)
     {
         $product = new Product();
-#FIXME Temporaire
-#$user = $this->getDoctrine(User::class)
-        #->getRepository::class)
-        #->find();
-#$product->setUser($user);
 
         $product->setCreatedAt(new \ DateTime());
 
