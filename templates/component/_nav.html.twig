@@ -1,16 +1,19 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mx-auto text-center">
     <a class="navbar-brand" href="#"><i class="fas fa-gifts"></i> Cadeaux<i class="fas fa-gifts"></i> </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
+
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Noël <i class="fas fa-air-freshener"></i></a>
 
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Noël</a>
+
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
@@ -20,6 +23,7 @@
             </li>
 
             <li class="nav-item dropdown">
+
 
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Marriage <i class="fas fa-glass-cheers"></i>
                 </a>
@@ -36,11 +40,11 @@
 
             <li class="nav-item dropdown">
 
+
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux d'Anniversaire <i class="fas fa-birthday-cake"></i></a>
 
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Anniversaire</a>
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>
@@ -50,11 +54,11 @@
 
             <li class="nav-item dropdown">
 
+
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Nouvel An Chinois <i class="fas fa-candy-cane"></i></a>
 
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nouvel An Chinois</a>
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>
@@ -62,19 +66,13 @@
                 </div>
             </li>
         </ul>
-
-
         {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
-
          <a class="nav-link" href="#"> Créer un article</a>
         <a class="nav-link" href="#"> Comment</a>
-
-
         <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}
         <a class="nav-link" href="{{ path('user_create') }}"> Inscription </a>
         <a class="nav-link" href="{{ path('app_login') }}"> Connexion </a>
         {% endif %}
-
     </div>
 </nav>

@@ -1,3 +1,4 @@
+
 dashboard:
     path: /admin
     controller: App\Controller\Admin\DashboardController::index
@@ -9,4 +10,5 @@ index:
 contact:
     path: /page/contact
     controller: App\controller\DefaultController::contact
+
 
