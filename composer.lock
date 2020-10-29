@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d675f76a1876c26ca069a5d532b3360b",
+    "content-hash": "b81c476074b02d8b72a510fbf0d3c9ad",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -6820,6 +6820,25 @@
             "time": "2020-05-20T17:43:50+00:00"
         },
         {
+            "name": "symfony/twig-pack",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/twig-pack.git",
+                "reference": "08a73e833e07921c464336deb7630f93e85ef930"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/twig-pack/zipball/08a73e833e07921c464336deb7630f93e85ef930",
+                "reference": "08a73e833e07921c464336deb7630f93e85ef930",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/twig-bundle": "*",
+                "twig/extra-bundle": "^2.12|^3.0",
+                "twig/twig": "^2.12|^3.0"
+            },
+            "type": "symfony-pack",
             "name": "symfony/uid",
             "version": "v5.1.7",
             "source": {
@@ -6855,6 +6874,7 @@
             "license": [
                 "MIT"
             ],
+            "description": "A Twig pack for Symfony projects",
             "authors": [
                 {
                     "name": "Grégoire Pineau",
@@ -6892,7 +6912,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-09-02T16:23:27+00:00"
+            "time": "2020-10-19T08:46:41+00:00"
         },
         {
             "name": "symfony/validator",
