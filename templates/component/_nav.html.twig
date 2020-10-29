@@ -10,11 +10,6 @@
             <li class="nav-item dropdown">
 
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Noël <i class="fas fa-air-freshener"></i></a>
-
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Noël</a>
-
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>
@@ -23,14 +18,8 @@
             </li>
 
             <li class="nav-item dropdown">
-
-
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Marriage <i class="fas fa-glass-cheers"></i>
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Marriage <i class="fas fa-glass-cheers"></i>
                 </a>
-
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Marriage</a>
-
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>
@@ -42,9 +31,6 @@
 
 
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux d'Anniversaire <i class="fas fa-birthday-cake"></i></a>
-
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Anniversaire</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>
@@ -53,12 +39,7 @@
             </li>
 
             <li class="nav-item dropdown">
-
-
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Nouvel An Chinois <i class="fas fa-candy-cane"></i></a>
-
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nouvel An Chinois</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="#">Homme</a>
                     <a class="dropdown-item" href="#">Femme</a>
@@ -66,8 +47,10 @@
                 </div>
             </li>
         </ul>
+
+
         {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
-         <a class="nav-link" href="#"> Créer un article</a>
+        <a class="nav-link" href="{{ path('product_create') }}"> Créer un article</a>
         <a class="nav-link" href="#"> Comment</a>
         <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}
