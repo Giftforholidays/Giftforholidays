@@ -30,11 +30,6 @@ class User implements UserInterface
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="user")
      */
     private $comments;
-
-    public function __construct()
-    {
-        $this->comments = new ArrayCollection();
-    }
     
     /**
      * @ORM\Column(type="string", length=180, unique=true)
@@ -70,6 +65,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->products = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
