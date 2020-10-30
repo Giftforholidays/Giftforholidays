@@ -1,13 +1,26 @@
 {% extends "base.html.twig" %}
 {% block body %}
+{#    <div class="container">#}
+{#        <div class="row">#}
+{#            <div class="col-18 mx-auto">#}
+{#                <div class="jumbotron mt-4">#}
+{#                    <h1 class="display-4">{{product.name}}</h1>#}
+{#                    <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.name }}" class="card-img-top">#}
+{#                    {{ product.color|raw }}#}
+{#                    {{ product.description|raw }}#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+
     <div class="container">
         <div class="row">
             <div class="col-18 mx-auto">
                 <div class="jumbotron mt-4">
-                    <h1 class="display-4">{{product.title}}</h1>
-                    <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.title }}" class="card-img-top">
-                    {{ product.color|raw }}
-                    {{ product.description|raw }}
+                    <h1 class="display-4">{{ product.name }}</h1>
+                    <img src="{{ asset('uploads/images/' ~ product.image) }}"
+                         alt="{{ product.name }}" class="card-img-top">
+                    {{ product.description | raw }}
                 </div>
             </div>
         </div>

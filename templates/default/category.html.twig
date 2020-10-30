@@ -9,13 +9,15 @@
 <div class="py-5 bg-light">
     <div class="container">
         <div class="row">
+
             {% for product in products %}
-                <div class="col-md-4">
-                    <div class="card shadow-sw">
+                <div class="col-md-4 mt-4">
+                    <div class="card shadow-sm">
                         <img src="{{ asset('uploads/images/' ~ product.image) }}" class="card-img-top" alt="{{ product.name }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.name }}</h5>
-                            <a href="{{ path('default_product', {'category': product.category.alias,'alias': product.alias,'id': product.id
+                            <a href="{{ path('default_product', {
+                                'id' : product.id
                             }) }}" class="btn btn-primary">Voir ce cadeau</a>
                         </div> <!-- /.card-body-->
                     </div><!-- /.card-->

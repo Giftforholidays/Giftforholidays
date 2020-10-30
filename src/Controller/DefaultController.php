@@ -26,9 +26,8 @@ class DefaultController extends AbstractController
     /**
      * @param $alias
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/{alias}",name="default_category", methods={"GET"})
+     * @Route("/category/{alias}",name="default_category", methods={"GET"})
      */
-
     public function category($alias)
     {
         $category = $this->getDoctrine()
@@ -39,13 +38,15 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @Route("/{category}/{alias}/{name}", name="default_product", methods={"GET"})
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/product/{id}", name="default_product", methods={"GET"})
      */
-    public function product($name)
+    public function product($id)
     {
         $product = $this->getDoctrine()
             ->getRepository(Product::class)
-            ->find($name);
+            ->find($id);
         return $this->render('default/product.html.twig', ['product' => $product]);
     }
 }
