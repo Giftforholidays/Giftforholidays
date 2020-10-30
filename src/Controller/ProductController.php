@@ -29,7 +29,7 @@ class ProductController extends AbstractController
     {
         $product = new Product();
 
-        $user=$this->getUser();
+        $user = $this->getUser();
         $product->setUser($user);
 
         $product->setCreatedAt(new \ DateTime());
@@ -37,19 +37,17 @@ class ProductController extends AbstractController
         $form = $this->createFormBuilder($product)
             ->add('name', TextType::class)
             ->add('category', EntityType::class,
-                ['class' => Category::class, 'choice_label' => 'name',])
-            ->add('description', textareaType::class)
+                ['class' => Category::class, 'choice_label' => 'name'])
+            ->add('description', TextType::class)
             ->add('color', TextType::class)
             ->add('image', FileType::class)
-            ->add('submit', submitType::class)
+            ->add('submit', SubmitType::class)
             ->getForm();
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             # dump($request);
             # dd($product);
-
-
             /** @var UploadedFile $image */
             $image = $form->get('image')->getData();
             if ($image) {
@@ -83,4 +81,5 @@ class ProductController extends AbstractController
         }
         return $this->render('product/create.html.twig', ['form' => $form->createView()]);
     }
+
 }
