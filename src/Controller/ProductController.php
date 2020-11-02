@@ -7,6 +7,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Entity\Product;
 
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -23,7 +24,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProductController extends AbstractController
 {
     /**
-     * @Route ("/product/creer-un-cadeau",name="product_create",methods={"GET|POST"})
+     * @Route ("/product/product/creer-un-cadeau",name="product_create",methods={"GET|POST"})
      */
     public function createProduct(Request $request, SluggerInterface $slugger)
     {
@@ -38,7 +39,7 @@ class ProductController extends AbstractController
             ->add('name', TextType::class)
             ->add('category', EntityType::class,
                 ['class' => Category::class, 'choice_label' => 'name'])
-            ->add('description', TextType::class)
+            ->add('description', TextareaType::class)
             ->add('color', TextType::class)
             ->add('image', FileType::class)
             ->add('submit', SubmitType::class)
@@ -48,7 +49,9 @@ class ProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             # dump($request);
             # dd($product);
-            /** @var UploadedFile $image */
+            /**
+             * @var UploadedFile $image
+             */
             $image = $form->get('image')->getData();
             if ($image) {
                 $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
@@ -60,15 +63,15 @@ class ProductController extends AbstractController
                         $this->getParameter('images_directory'),
                         $newFilename
                     );
-                } catch (FileException $e) {
                 }
-
+                catch (FileException $e) { }
                 $product->setimage($newFilename);
-
             }
 
+            $product->setAlias(
+                $slugger->slug(
+                    $product->getName()));
 
-            $product->setAlias($slugger->slug($product->getName()));
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
@@ -79,7 +82,8 @@ class ProductController extends AbstractController
             # ]);
 
         }
-        return $this->render('product/create.html.twig', ['form' => $form->createView()]);
+        return $this->render('product/create.html.twig',
+            ['form' => $form->createView()]);
     }
 
 }
