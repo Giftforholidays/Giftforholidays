@@ -34,7 +34,7 @@ class DefaultController extends AbstractController
             ->getRepository(Category::class)
             ->findOneBy(['alias' => $alias]);
         $products = $category->getProducts();
-        return $this->render('default/categor.html.twig', ['products'=>$products]);
+        return $this->render('default/category.html.twig', ['products' => $products]);
     }
 
     /**
