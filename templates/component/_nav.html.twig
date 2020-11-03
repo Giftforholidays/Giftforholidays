@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
-                <a class="nav-link" href="{{ path('default_category', { 'alias' : 'noel' }) }}" >Cadeaux de Noël <i class="fas fa-air-freshener"></i></a>
+                <a class="nav-link" href="{{ path('default_category',{'alias':'noel'}) }}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Noël <i class="fas fa-air-freshener"></i></a>
 
             </li>
 
@@ -18,19 +18,17 @@
             </li>
 
             <li class="nav-item dropdown">
-             <a class="nav-link" href="{{ path('default_category', { 'alias' : 'anniversaire' }) }}" >Cadeaux d'Anniversaire <i class="fas fa-birthday-cake"></i></a>
-
+             <a class="nav-link" href="{{ path('default_category',{'alias':'anniversaire'}) }}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux d'Anniversaire <i class="fas fa-birthday-cake"></i></a>
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link" href="{{ path('default_category', { 'alias' : 'nouvel an chinois' }) }}" >Cadeaux de Nouvel An Chinois <i class="fas fa-candy-cane"></i></a>
+                <a class="nav-link" href="{{ path('default_category',{'alias':'nouvel an chinoi'}) }}" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Cadeaux de Nouvel An Chinois <i class="fas fa-candy-cane"></i></a>
             </li>
         </ul>
 
-
         {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
         <a class="nav-link" href="{{ path('product_create') }}"> Ajouter un cadeau</a>
-        <a class="nav-link" href="{{ path('comment_create') }}"> Comment</a>
+        <a class="nav-link" href="{{ path('comment_create') }}"> Commentaire</a>
         <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}
             <a class="nav-link" href="{{ path('user_create') }}"> Inscription </a>

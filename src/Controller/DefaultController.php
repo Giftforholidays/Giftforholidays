@@ -14,18 +14,18 @@ class DefaultController extends AbstractController
 
     /**
      *  Page/Action: Accueil
+     *
      */
     public function index()
     {
         $products = $this->getDoctrine()
             ->getRepository(Product::class)
             ->findBy([], ['id' => 'DESC'], 8);
-        return $this->render('default/index.html.twig');
+        return $this->render('default/index.html.twig', ['products'=>$products]);
     }
 
     /**
      * @param $alias
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/category/{alias}",name="default_category", methods={"GET"})
      */
     public function category($alias)
@@ -34,11 +34,11 @@ class DefaultController extends AbstractController
             ->getRepository(Category::class)
             ->findOneBy(['alias' => $alias]);
         $products = $category->getProducts();
-        return $this->render('default/category.html.twig', ['products' => $products]);
+        return $this->render('default/categor.html.twig', ['products'=>$products]);
     }
 
     /**
-     * @param $id
+     * @param $alias
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/product/{id}", name="default_product", methods={"GET"})
      */
@@ -47,6 +47,6 @@ class DefaultController extends AbstractController
         $product = $this->getDoctrine()
             ->getRepository(Product::class)
             ->find($id);
-        return $this->render('default/product.html.twig', ['product' => $product]);
+        return $this->render('default/product.html.twig', ['product'=>$product]);
     }
 }

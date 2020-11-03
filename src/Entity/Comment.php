@@ -38,6 +38,11 @@ class Comment
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Product::class, inversedBy="comment")
+     */
+    private $product;
+
 
 
     public function getId(): ?int
@@ -89,6 +94,18 @@ class Comment
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }
