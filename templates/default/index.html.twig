@@ -3,15 +3,15 @@
 {% block body %}
     <div class="row p-5">
         <div class="w-75 text-center">
-            <h1 class="text-danger">Choisir vos cadeaux préférés</h1>
+            <h1 class="text-danger">Large choix de cadeaux </h1>
             <h2>Cadeaux de Noël <i class="fas fa-air-freshener"></i></h2>
             <hr>
             <p class="font-italic,font-weight-bold, text-danger">
-            Noël arrive, le cloch sonne
+            Noël arrive, la cloche sonne
                 <br>
                 le sapin vous attend
             </p>
-            {% for product in products %}
+            {% for product in products  %}
                 <div class="col-md-4">
                     <div class="card shadow-sw">
                         <img src="{{ asset('uploads/images/' ~ product.image) }}" class="card-img-top" alt="{{ product.name }}">
