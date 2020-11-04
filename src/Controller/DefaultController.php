@@ -21,8 +21,13 @@ class DefaultController extends AbstractController
     {
         $products = $this->getDoctrine()
             ->getRepository(Product::class)
-            ->findBy([], ['id' => 'ASC'], 3);
-        return $this->render('default/index.html.twig', ['products'=>$products]);
+            ->findBy([], ['id' => 'DESC'], 30);
+
+        $categories = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findBy([], ['id' => 'DESC']);
+
+        return $this->render('default/index.html.twig', ['products'=>$products, 'categories' => $categories]);
     }
 
     /**
