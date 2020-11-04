@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link" href="{{ path('default_category', { 'alias' : 'noel' }) }}" >Cadeaux de Noël <i class="fas fa-air-freshener"></i></a>
 
@@ -27,7 +27,7 @@
             </li>
         </ul>
 
-
+        <div class="form-check-inline my-2 my-lg-0 row ">
         {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
         <a class="nav-link" href="{{ path('product_create') }}"> Ajouter un cadeau</a>
         <a class="nav-link" href="{{ path('comment_create') }}"> Comment</a>
@@ -36,5 +36,6 @@
         <a class="nav-link" href="{{ path('user_create') }}"> Inscription </a>
         <a class="nav-link" href="{{ path('app_login') }}"> Connexion </a>
         {% endif %}
+        </div>
     </div>
 </nav>

@@ -1,54 +1,218 @@
-
 {% extends "base.html.twig" %}
 {% block body %}
-    <div class="row p-5">
-        <div class="w-75 text-center">
-            <h1 class="text-danger">Choisir vos cadeaux préférés</h1>
-            <h2>Cadeaux de Noël <i class="fas fa-air-freshener"></i></h2>
-            <hr>
-            <p class="font-italic,font-weight-bold, text-danger">
-            Noël arrive, le cloch sonne
-                <br>
-                le sapin vous attend
-            </p>
-            {% for product in products %}
-                <div class="col-md-4">
-                    <div class="card shadow-sw">
-                        <img src="{{ asset('uploads/images/' ~ product.image) }}" class="card-img-top" alt="{{ product.name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ product.name }}</h5>
-                            <a href="{{ path('default_product', {'category':product.category.alias, 'alias':product.alias, 'id':product.id}) }}" class="btn btn-primary">Voir ce cadeau</a>
-                        </div> <!-- /.card-body-->
-                    </div><!-- /.card-->
-                </div><!-- /.col-md-4-->
-            {% endfor %}
-            <h2>Cadeaux de Marriage <i class="fas fa-glass-cheers"></i></h2>
-            <hr>
-            <p class="font-italic,font-weight-bold, text-danger">
-            Vivre les mariés <br>
-                <br> choisir les cadeaux pour eux
-            </p>
-            <h2>Cadeaux d'Anniversaire <i class="fas fa-birthday-cake"></i></h2>
-            <hr>
-            <p class="font-italic,font-weight-bold, text-danger">
-            Joyeux Anniversaire!
-                <br> Bon anniversaire!
-            </p>
-            <h2>Cadeaux de nouvel an Chinois <i class="fas fa-candy-cane"></i></h2>
-            <hr class="text-black-50">
-            <p class="font-italic,font-weight-bold, text-danger">
-                Bonne année!
-                <br> 新年快乐
-            </p>
-        </div>
-        <div class="card border-secondary mb-3 w-25 " style="max-width: 18rem;">
-            <div class="card-header">Cadeaux <i class="fas fa-gifts"></i></div>
-            <div class="card-body text-secondary">
-                <h5 class="card-title">Secondary card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
+    {# <div class="row p-5"> #}
+    {# <div class="w-75 text-center mx-auto"> #}
+    {# <h1 class="text-danger">Choisir vos cadeaux préférés</h1> #}
+
+
+
+    {# <h2>Cadeaux de Noël <i class="fas fa-air-freshener"></i></h2> #}
+    {# <hr> #}
+    {# <p class="font-italic,font-weight-bold, text-danger"> #}
+    {# Noël arrive, le cloch sonne #}
+    {# <br> #}
+    {# le sapin vous attend #}
+    {# </p> #}
+
+    {# <div class="card-deck"> #}
+    {# <div class="card"> #}
+    {# <img src="..." class="card-img-top" alt="..."> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Card title</h5> #}
+    {# <p class="card-text">This is a longer card with supporting text below as a natural lead-in to #}
+    {# additional content. This content is a little bit longer.</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# <div class="card"> #}
+    {# <img src="..." class="card-img-top" alt="..."> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Card title</h5> #}
+    {# <p class="card-text">This card has supporting text below as a natural lead-in to additional #}
+    {# content.</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# <div class="card"> #}
+    {# <img src="..." class="card-img-top" alt="..."> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Card title</h5> #}
+    {# <p class="card-text">This is a wider card with supporting text below as a natural lead-in to #}
+    {# additional content. This card has even longer content than the first to show that equal #}
+    {# height action.</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# </div> #}
+
+
+    {# <h2>Cadeaux de Marriage <i class="fas fa-glass-cheers"></i></h2> #}
+    {# <hr> #}
+    {# <p class="font-italic,font-weight-bold, text-danger"> #}
+    {# Vivre les mariés <br> #}
+    {# <br> choisir les cadeaux pour eux #}
+    {# </p> #}
+
+    {# <div class="card-deck"> #}
+    {# <div class="card"> #}
+    {# <img src="/img/Cadremariage.jpg" class="card-img-top" alt="Cadremariage"> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Cadre mariage</h5> #}
+    {# <p class="card-text">Un cadre magnifique qui fait le cadeau parfait</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# <div class="card"> #}
+    {# <img src="/img/Trousseau pour la mariée.jpg" class="card-img-top" alt="Trousseau pour la mariée"> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Trousseau</h5> #}
+    {# <p class="card-text">Ce magnifique trousseau comporte tous les essentiels dont a besoin la #}
+    {# mariée !</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# <div class="card"> #}
+    {# <img src="/img/Vaiselle.jpeg" class="card-img-top" alt="Vaiselle"> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Vaiselle</h5> #}
+    {# <p class="card-text">Lot de 10 pièces pour cuisiner</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# </div> #}
+
+    {# <h2>Cadeaux d'Anniversaire <i class="fas fa-birthday-cake"></i></h2> #}
+    {# <hr> #}
+    {# <p class="font-italic,font-weight-bold, text-danger"> #}
+    {# Joyeux Anniversaire! #}
+    {# <br> Bon anniversaire! #}
+
+    {# <div class="card-deck"> #}
+    {# <div class="card"> #}
+    {# <img src="/img/Cuir sac à main.jpg" class="card-img-top" alt="Cuir sac à main"> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Cuir sac à main</h5> #}
+    {# <p class="card-text">Sac en cuir spacieux, bourse en gros cuir, sac besace marron, chaud usiné sac à #}
+    {# bandoulière sac à main, marron bandoulière sac, brun, sac avec des animaux #}
+    {# Modèle « Dans la forêt »</p> #}
+    {# <p class="card-text"><small class="text-muted"></small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# <div class="card"> #}
+    {# <img src="/img/Kolobok.jpg" class="card-img-top" alt="Kolobok"> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Kolobok</h5> #}
+    {# <p class="card-text">Ces kits créatifs vont emmener votre enfant dans le monde de l’imagination, de la #}
+    {# fantaisie et de l’art. Vous découvrirez à quel point votre enfant est talentueux dans la peinture et #}
+    {# aussi ce kit créatif sera une excellente idée pour un jeu de rouleaux! </p> #}
+    {# <p class="card-text"><small class="text-muted"></small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# <div class="card"> #}
+    {# <img src="/img/Chien.jpg" class="card-img-top" alt="Chien"> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Chien</h5> #}
+    {# <p class="card-text">Ce chien ukrainien de poupée molle avec la broderie de machine était la main #}
+    {# fabriqué à partir de lin par un artiste ukrainien. Contemporain, nouveau, dans un #}
+    {# état parfait. Il semble beaucoup mieux en personne. #}
+    {# Traditions ukrainiennes.</p> #}
+    {# <p class="card-text"><small class="text-muted"></small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# </div> #}
+
+
+    {# <h2>Cadeaux de nouvel an Chinois <i class="fas fa-candy-cane"></i></h2> #}
+    {# <hr class="text-black-50"> #}
+    {# <p class="font-italic,font-weight-bold, text-danger"> #}
+    {# Bonne année! #}
+    {# <br> 新年快乐 #}
+    {# </p> #}
+
+
+    {# <!-- </div> #}
+    {# <div class="card border-secondary mb-3 w-25 " style="max-width: 18rem;"> #}
+    {# <div class="card-header">Cadeaux <i class="fas fa-gifts"></i></div> #}
+    {# <div class="card-body text-secondary"> #}
+    {# <h5 class="card-title">Secondary card title</h5> #}
+    {# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's #}
+    {# content.</p> #}
+    {# </div> #}
+    {# </div> #}
+    {# </div>--> #}
+
+
+
+    {# <div class="card-deck"> #}
+    {# <div class="card"> #}
+    {# <img src="/img/kit de thé.jpg" class="card-img-top" alt="kit de thé"> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Kit de thé</h5> #}
+    {# <p class="card-text">kit de thé avec 4 thé différence: Gouji noir, thé fleur avec mieil, the noir #}
+    {# parfumé, thé vert, chaque thé avec différent boite</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# <div class="card"> #}
+    {# <img src="/img/noeux chinois avec cloch.jpg" class="card-img-top" alt="noeux chinois"> #}
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Noeux chinois</h5> #}
+    {# <p class="card-text">noeux chinois multicouleur motif poisson avec cloch</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+    {# <div class="card"> #}
+    {# <img src="/img/décoration poisson et lotus.jpg" class="card-img-top" alt="décoration poisson"> #}
+
+
+    {# <div class="card-body"> #}
+    {# <h5 class="card-title">Décoration poisson et lotus</h5> #}
+    {# <p class="card-text">cadre de décoration motif noyer noir avec poisson et lotus relief</p> #}
+    {# <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> #}
+    {# </div> #}
+    {# </div> #}
+
+    {# </div> #}
+
+    {# </div> #}
+    {# </div> #}
+
+
+
+    <div class="p-3 mx-auto text-center">
+        <h1 class="display-4">Giftforholidays</h1>
     </div>
+    <!-- .py-5.bg-light>.container>.row>.col-md-4.mt-4 -->
+    <div class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+
+
+                {% for category in categories %}
+                    {% for product in category.products|slice(0, 3) %}
+                        <div class="col-md-4 mt-4">
+                            <div class="card shadow-sm">
+                                <img src="{{ asset('uploads/images/' ~ product.image) }}"
+                                     alt="{{ product.name }}" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <p><small class="text-muted">{{ product.category.name }}</small></p>
+                                    <a href="{{ path('default_product', {
+                                        'category' : product.category.alias,
+                                        'alias' : product.alias,
+                                        'id' : product.id
+                                    }) }}" class="btn btn-primary">Voir ce cadeau</a>
+                                </div><!--/.card-body -->
+                            </div><!--/.card -->
+                        </div><!--/.col-md-4 -->
+                    {% endfor %}
+                {% endfor %}
+
+                
+            </div><!--/.row -->
+        </div><!--/.container -->
+    </div><!--/.py-5 -->
+
 
 
 {% endblock %}
