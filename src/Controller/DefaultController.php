@@ -14,13 +14,14 @@ class DefaultController extends AbstractController
 
     /**
      *  Page/Action: Accueil
-     *
+     * @param $alias
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index()
     {
         $products = $this->getDoctrine()
             ->getRepository(Product::class)
-            ->findBy([], ['id' => 'DESC'], 8);
+            ->findBy([], ['id' => 'ASC'], 3);
         return $this->render('default/index.html.twig', ['products'=>$products]);
     }
 
@@ -38,7 +39,7 @@ class DefaultController extends AbstractController
     }
 
     /**
-     * @param $alias
+     * @param $id
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/product/{id}", name="default_product", methods={"GET"})
      */

@@ -24,7 +24,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class ProductController extends AbstractController
 {
     /**
-     * @Route ("/product/product/creer-un-cadeau",name="product_create",methods={"GET|POST"})
+     * @Route ("/page/product/creer-un-cadeau",name="product_create",methods={"GET|POST"})
      */
     public function createProduct(Request $request, SluggerInterface $slugger)
     {
