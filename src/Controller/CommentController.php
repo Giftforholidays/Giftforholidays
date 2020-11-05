@@ -5,31 +5,33 @@ namespace App\Controller;
 
 
 use App\Entity\Comment;
-use App\Entity\User;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use App\Entity\Product;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class CommentController extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
+class CommentController extends AbstractController
 {
     /**
      * Formulaire permettant de créer un commentaire
-     * @Route("/comment/creer-un-commentaire", name="comment_create", methods={"GET|POST"})
-     *
+     * @param int $idProduct
+     * @param Request $request
+     * @param SluggerInterface $slugger
+     * @return Response
      */
-    public function createComment(Request $request, SluggerInterface $slugger)
+    public function createComment(int $idProduct, Request $request, SluggerInterface $slugger)
     {
         #1a. Création d'un nouveau Comment
         $comment = new Comment();
 
         #1b. Récupérer le user connecté
         $user = $this->getUser();
-
         $comment->setUser($user);
 
         #1c. Ajout de la date de rédaction du commentaire
@@ -37,6 +39,7 @@ class CommentController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
 
         #2. Création d'un formulaire avec $comment
         $form = $this->createFormBuilder($comment)
+            ->setAction($this->generateUrl('ajax_comment_create'))
 
             #2a. Note du commentaire (Liste déroulante)
             ->add('note', ChoiceType::class, [
@@ -53,31 +56,18 @@ class CommentController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
             #2b. Texte du commentaire
             ->add('commentaire', TextareaType::class)
 
+            ->add('productId', HiddenType::class, [
+                'data' => $idProduct,
+                'mapped' => false
+            ])
+
             #2d. Boutton Submit du commentaire
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, [
+                'label' => 'Déposer un commentaire'
+            ])
 
             #2e. Permet de récupérer le formulaire généré
             ->getForm();
-
-        #3. Demande à Symfony de récupérer les infos dans la request.
-        $form->handleRequest($request);
-
-        #4. Vérifie si le formulaire est soumis et valide
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            #4a. Sauvegarde dans la BDD
-            /**
-             * Qu'est-ce que le Entity Manager (em) ?
-             * C'st une classe qui sait comment sauvegarder d'autres classes.
-             */
-            $em = $this->getDoctrine()->getManager(); # Récupération du EM
-            $em->persist($comment); # Demande pour sauvegarder en BDD $post
-            $em->flush(); # On exécute la demande
-
-            #4b. Notification / Confirmation
-            $this->addFlash('notice', 'Votre commentaire est en ligne !');
-
-        }
 
         #5. Transmission du formulaire à la vue
         return $this->render('comment/create.html.twig', [
@@ -85,4 +75,40 @@ class CommentController extends \Symfony\Bundle\FrameworkBundle\Controller\Abstr
         ]);
 
     }
+
+    /**
+     * @Route("/ajax/comment/create", name="ajax_comment_create", methods={"POST"});
+     * @param Request $request
+     */
+    public function ajaxComment(Request $request)
+    {
+        # Récupération du commentaire
+        $commentData = $request->get('form');
+
+        # Récupération du produit
+        $product = $this->getDoctrine()->getRepository(Product::class)->find($commentData['productId']);
+
+        # Création d'un commentaire
+        $comment = new Comment();
+        $comment->setUser($this->getUser());
+        $comment->setProduct($product);
+        $comment->setCommentaire($commentData['commentaire']);
+        $comment->setNote($commentData['note']);
+
+        # Enregistrement dans la BDD
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($comment);
+        $em->flush();
+
+        # Retour du commentaire a la requete AJAX
+        return $this->json([
+            'comment' => [
+                'firstname' => $comment->getUser()->getFirstname(),
+                'commentaire' => $comment->getCommentaire(),
+                'note' => $comment->getNote(),
+                'date' => $comment->getDate()
+            ]
+        ]);
+    }
+
 }

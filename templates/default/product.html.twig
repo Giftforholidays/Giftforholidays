@@ -1,14 +1,64 @@
 {% extends "base.html.twig" %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        $('#gfh_comment').submit(function (event) {
+
+            console.log($(this));
+
+            // Bloquer la redirection HTTP
+            event.preventDefault();
+
+            // Traitement du formulaire
+            // console.log($(this).serialize()); -- Données du formulaire
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: $(this).serialize()
+            })
+                .done(function (resultat) {
+
+                    // Affichage du resultat sur la page
+                    const comment = resultat.comment
+                    $('#gfh_comments_results').append(`
+                        <p>${comment.firstname} : ${comment.note} / 5 |
+                                ${comment.commentaire} | ${comment.date}</p>
+                    `);
+
+                    // Réinitialisation du formulaire
+                    $('#gfh_comment').get(0).reset();
+
+                });
+
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
-{#{{ dump(app.request) }}#}
     <div class="container">
         <div class="row">
             <div class="col-18 mx-auto">
                 <div class="jumbotron mt-4">
                     <h1 class="display-4">{{ product.name }}</h1>
-                    <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.name }}" class="card-img-top">
+                    <img src="{{ asset('uploads/images/' ~ product.image) }}" alt="{{ product.name }}"
+                         class="card-img-top">
                     {{ product.description | raw }}
                 </div>
+
+                <div id="gfh_comments_results">
+                    {# Récupération des commentaires et affichage depuis le produit #}
+                    {% for comment in product.comment %}
+
+                        <p>{{ comment.user.firstname }} : {{ comment.note }} / 5 |
+                            {{ comment.commentaire }} | {{ comment.date | date('d/m/Y') }}</p>
+
+                    {% endfor %}
+                </div>
+
+                {# Ajouter un commentaire #}
+                {{ render(controller('App\\Controller\\CommentController::createComment', { 'idProduct' : product.id })) }}
+
             </div>
         </div>
     </div>
