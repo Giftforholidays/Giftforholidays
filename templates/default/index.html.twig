@@ -179,41 +179,4 @@
 
 
 
-    <div class="p-3 mx-auto text-center">
-        <h1 class="display-4">Giftforholidays</h1>
-    </div>
-    <!-- .py-5.bg-light>.container>.row>.col-md-4.mt-4 -->
-    <div class="py-5 bg-light">
-        <div class="container">
-            <div class="row">
-
-
-                {% for category in categories %}
-                    {% for product in category.products|slice(0, 3) %}
-                        <div class="col-md-4 mt-4">
-                            <div class="card shadow-sm">
-                                <img src="{{ asset('uploads/images/' ~ product.image) }}"
-                                     alt="{{ product.name }}" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ product.name }}</h5>
-                                    <p><small class="text-muted">{{ product.category.name }}</small></p>
-                                    <a href="{{ path('default_product', {
-                                        'category' : product.category.alias,
-                                        'alias' : product.alias,
-                                        'id' : product.id
-                                    }) }}" class="btn btn-primary">Voir ce cadeau</a>
-                                </div><!--/.card-body -->
-                            </div><!--/.card -->
-                        </div><!--/.col-md-4 -->
-                    {% endfor %}
-                {% endfor %}
-
-                
-            </div><!--/.row -->
-        </div><!--/.container -->
-    </div><!--/.py-5 -->
-
-
-
-{% endblock %}
-
+   
