@@ -1,11 +1,15 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mx-auto text-center">
-    <a class="navbar-brand" href="{{ path('index') }}"><i class="fas fa-gifts"></i> Cadeaux<i class="fas fa-gifts"></i> </a>
+
+    <!-- bouton de page accueil-->
+    <a class="navbar-brand" href="{{ path('index') }}"><i class="fas fa-gifts"></i> Giftforholidays<i class="fas fa-gifts"></i> </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- partie catégory-->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
@@ -28,16 +32,15 @@
             </li>
         </ul>
 
+    <!-- fonctionnalité de inscription, connextion, déconnexion-->
         <div class="form-check-inline my-2 my-lg-0 row ">
-
-        {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <a class="nav-link" href="{{ path('product_create') }}"> Ajouter un cadeau</a>
-        <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
-        {% else %}
-        <a class="nav-link" href="{{ path('user_create') }}"> Inscription </a>
-        <a class="nav-link" href="{{ path('app_login') }}"> Connexion </a>
-        {% endif %}
-
+            {%  if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <a class="nav-link" href="{{ path('product_create') }}"> Ajouter un cadeau</a>
+            <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+            {% else %}
+            <a class="nav-link" href="{{ path('user_create') }}"> Inscription </a>
+            <a class="nav-link" href="{{ path('app_login') }}"> Connexion </a>
+            {% endif %}
         </div>
     </div>
-</nav>
+  </nav>
