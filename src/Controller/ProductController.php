@@ -36,13 +36,17 @@ class ProductController extends AbstractController
         $product->setCreatedAt(new \ DateTime());
 
         $form = $this->createFormBuilder($product)
-            ->add('name', TextType::class)
+            ->add('name', TextType::class, [
+                'label'=>'nom de cadeau'])
             ->add('category', EntityType::class,
                 ['class' => Category::class, 'choice_label' => 'name'])
             ->add('description', TextareaType::class)
-            ->add('color', TextType::class)
+            ->add('color', TextType::class, [
+                'label'=>'couleur'])
             ->add('image', FileType::class)
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, [
+                'label'=>'Envoi'
+            ])
             ->getForm();
         $form->handleRequest($request);
 
