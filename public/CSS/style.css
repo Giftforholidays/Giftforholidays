@@ -36,8 +36,8 @@ div.card img {
 }
 
 .header_image {
-    width: 100%;
+    width: 100%;!important;
     height: 450px;
-    background: url('../img/cartes-cadeaux.jpg')right top;
+    background: url('../img/cartes-cadeaux.jpg') right top;
     background-size: cover;
 }
