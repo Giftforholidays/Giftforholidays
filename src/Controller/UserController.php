@@ -27,11 +27,11 @@ public function createUser(Request $request,UserPasswordEncoderInterface $encode
     $user->setRoles(['ROLE_USER']);
 
     $form = $this->createFormBuilder($user)
-        ->add('firstname',TextType::class)
-        ->add('lastname',TextType::class)
+        ->add('firstname',TextType::class['label'=>'Prénom'])
+        ->add('lastname',TextType::class['label'=>'Nom'])
         ->add('email',EmailType::class)
-        ->add('password',PasswordType::class)
-        ->add('submit',SubmitType::class)
+        ->add('password',PasswordType::class['label'=>'Mot de passe'])
+        ->add('submit',SubmitType::class['label'=>'Envoyer'])
         ->getForm();
 
     $form->handleRequest($request);

@@ -38,6 +38,6 @@ div.card img {
 .header_image {
     width: 100%;
     height: 450px;
-    background: url('../img/cartes-cadeaux.jpg');
+    background: url('../img/cartes-cadeaux.jpg')right top;
     background-size: cover;
 }
